@@ -1,0 +1,60 @@
+.price {
+  text-align:right;
+}
+
+.must {
+  color: darkgray;
+}
+
+span.info {
+  font-size: 2.0em;
+}
+
+span.camera {
+  font-size: 2.0em;
+  top: 25px;
+}
+
+div.camera-base {
+  text-align: center;
+}
+
+p.camera-text {
+  margin-top: 20px;
+}
+
+
+span.info-badge {
+  top: -34px;
+}
+
+div#item_regist {  
+    position: fixed !important;  
+    position: absolute;
+    bottom: 0;
+    width: 88px;  
+    height: 88px;  
+    background-color: #FC6E51;  
+    color: #fff;
+    right: 10px;
+    
+     /* 角を丸くする */
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+  border: none;
+}
+
+p.navbar-text {
+  margin-top: 10px;
+  margin-bottom: 5px; 
+}
+
+.my-badge {
+  top: -10px;
+  position:relative;
+}
