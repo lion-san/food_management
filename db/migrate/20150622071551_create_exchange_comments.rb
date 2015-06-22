@@ -4,7 +4,7 @@ class CreateExchangeComments < ActiveRecord::Migration
       t.integer :exchange_id
       t.integer :user_id
       t.string :comment
-      t.integer :delete
+      t.integer :del
 
       t.timestamps
     end

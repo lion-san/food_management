@@ -4,7 +4,7 @@ class CreateItemComments < ActiveRecord::Migration
       t.integer :item_id
       t.integer :user_id
       t.string :comment
-      t.integer :delete
+      t.integer :del
 
       t.timestamps
     end

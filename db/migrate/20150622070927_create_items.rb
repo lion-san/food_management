@@ -5,17 +5,17 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.integer :like
       t.integer :price
-      t.binary :thumbnail, limit: 1.megabyte
-      t.binary :picture1, limit: 5.megabyte
-      t.binary :picture2, limit: 5.megabyte
-      t.binary :picture3, limit: 5.megabyte
-      t.binary :picture4, limit: 5.megabyte
+      t.binary :thumbnail
+      t.binary :picture1
+      t.binary :picture2
+      t.binary :picture3
+      t.binary :picture4
       t.string :item_detail
       t.integer :category_id
       t.integer :status_id
       t.integer :exchange_method_id
       t.datetime :exchange_date
-      t.integer :delete
+      t.integer :del
 
       t.timestamps
     end
