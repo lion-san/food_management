@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622050236) do
+ActiveRecord::Schema.define(version: 20150622071605) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150622050236) do
     t.integer  "exchange_id"
     t.integer  "user_id"
     t.string   "comment"
-    t.integer  "delete"
+    t.integer  "del"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150622050236) do
     t.integer  "item_id"
     t.integer  "user_id"
     t.string   "comment"
-    t.integer  "delete"
+    t.integer  "del"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,17 +83,17 @@ ActiveRecord::Schema.define(version: 20150622050236) do
     t.string   "name"
     t.integer  "like"
     t.integer  "price"
-    t.binary   "thumbnail",          limit: 1048576
-    t.binary   "picture1",           limit: 5242880
-    t.binary   "picture2",           limit: 5242880
-    t.binary   "picture3",           limit: 5242880
-    t.binary   "picture4",           limit: 5242880
+    t.binary   "thumbnail"
+    t.binary   "picture1"
+    t.binary   "picture2"
+    t.binary   "picture3"
+    t.binary   "picture4"
     t.string   "item_detail"
     t.integer  "category_id"
     t.integer  "status_id"
     t.integer  "exchange_method_id"
     t.datetime "exchange_date"
-    t.integer  "delete"
+    t.integer  "del"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
