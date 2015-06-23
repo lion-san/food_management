@@ -1,3 +1,4 @@
+<% provide(:title, 'Item list') %>
     <!-- thumbnail -->
       <div class="row">
 
@@ -8,20 +9,21 @@
                 <div class="infos">
                   <h4><%= item.name %></h4>
                   <div class="glyphicon glyphicon-star"></div><%= item.like %>
-                  <div class="glyphicon glyphicon-pencil"></div>123
-                  <div class="price">&yen;<%= item.price %></div>
+                <div class="glyphicon glyphicon-pencil"></div><%= item.item_comments.count %>
+                  <div class="price"><%= item.price %> Point.</div>
                 </div>
               </div>
             </div>
         <% end %>
             
-
-        <a href="./item_regist.html">
+        <%= link_to new_item_path do %>
           <div id="item_regist" class="camera-base">
             <span class="glyphicon glyphicon-camera camera" aria-hidden="true"></span>
             <br>
             <p class="camera-text">出品</p>
           </div>
-        </a>
+      <% end %>
 
       </div><!--row-->
+
+      <%= javascript_include_tag 'items/index' %>

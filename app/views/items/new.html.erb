@@ -1,2 +1,105 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<% provide(:title, '商品登録') %>
+<form style="display:none;">
+    <input type="file" accept="image/*;capture=camera" id="imageFile1"/>
+    <input type="file" accept="image/*;capture=camera" id="imageFile2"/>
+    <input type="file" accept="image/*;capture=camera" id="imageFile3"/>
+    <input type="file" accept="image/*;capture=camera" id="imageFile4"/>
+</form>
+
+      <h4>写真を登録してください。（最大4枚/1枚あたり5Mまで）</h4>
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="thumbnail">
+            <%= image_tag 'add_picture.png' %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="thumbnail">
+            <%= image_tag 'add_picture.png' %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="thumbnail">
+            <%= image_tag 'add_picture.png' %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="thumbnail">
+            <%= image_tag 'add_picture.png' %>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="row">
+         <div class="col-md-12">
+            <ul class="list-group">
+              <h4>商品名と説明</h4>
+              <li class="list-group-item">
+                <input type="text" class="form-control" placeholder="商品名（必須 40文字まで）">
+              </li>
+              <li class="list-group-item">
+                <textarea style="height:150px" class="form-control"  placeholder="商品の説明（必須 1,000文字以内）
+（色、素材、重さ、定価、注意点など）
+                  
+ 例）2015/4/3に100円で購入した乾パンです。未開封です。賞味期限は2020/2/1までです。"></textarea>
+              </li>
+            </ul>
+         </div>
+      </div>
+        
+        
+        <div class="row">
+         <div class="col-md-12">                        
+            <ul class="list-group">
+              <h4>商品の詳細</h4>
+              <a href="./item_category.html" class="list-group-item">カテゴリー<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span><p class="pull-right must">（必須）</p></a>
+              <a href="./item_status.html" class="list-group-item">商品の状態<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span><p class="pull-right must">（必須）</p></a>
+            </ul>
+         </div>
+
+         <div class="col-md-12">
+            <ul class="list-group">
+              <h4>交換方法</h4>
+              <a href="./item_exchange.html" class="list-group-item">交換方法を選択<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span><p class="pull-right must">（必須）</p></a>
+            </ul>
+            
+            <ul class="list-group">
+              <h4>交換希望日</h4>
+            <ul class="list-group">
+              <input id="dp1" maxlength="10" type="text" readonly="readonly">
+            </ul>
+         </div>         
+
+         <div class="col-md-12">
+            <ul class="list-group">
+              <h4>価格</h4>
+              <div class="input-group">
+                <span class="input-group-addon">P</span>
+                <input type="text" class="form-control" placeholder="0" style="text-align:right;">
+                <span class="input-group-addon">point.</span>
+              </div>
+            </ul>
+         </div>
+        </div>
+            
+      <br> 
+      <div class="row">
+         <div class="col-md-10">
+           <a>禁止されている出品</a>、<a>行為</a>を必ず確認ください。またブランド品で
+           シリアルナンバー等がある場合はご記載ください。<a>偽ブランド</a>の
+           販売は犯罪で処罰される可能性があります。
+         </div>     
+         <div class="col-md-12">
+           <br><br>
+         </div>
+         <div class="col-md-12">
+             <button type="button" class="btn-lg btn-danger btn-block" onclick="location.href='./items.html'">出品する</button>
+         </div>
+      </div>
+      
+    </div><!-- container -->
+    
+      <br><br><br>
+
+      <%= javascript_include_tag 'items/new' %>
