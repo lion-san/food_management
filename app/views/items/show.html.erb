@@ -16,6 +16,7 @@
                 <div class="item"><img src="/photos/DSC_1114.jpg"></div>
                 <div class="item"><img src="/photos/DSC_1064.jpg"></div>
 				      </div>
+				     
 				      
 				      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
 				        <span class="glyphicon glyphicon-chevron-left"></span>
@@ -27,16 +28,17 @@
 			               
 			      </div>
 			 
-			      <h2>10,000point</h2> 
-			      <h4>RED BULL Blue Edition</h4>
-			               
-			      <div>
-			        <button class="btn btn-primary" type="button">いいね！ <span class="badge">4</span></button>
-			        <button class="btn btn-primary" type="button" onclick="location.href='./comment_all_users.html'">コメント <span class="badge">8</span></button>
-			        <br>
-			      </div><div class="blank"></div>
+			      <h2><%= @select_item.price %>point</h2>
+			      <h4><%= @select_item.name %></h4>
 
+			      <div>
+			        <button class="btn btn-primary" type="button">いいね！ <span class="badge"><%= @select_item.like %></span></button>
+			        <button class="btn btn-primary" type="button" onclick="location.href='./comment_all_users.html'">コメントする&nbsp;<span class="badge">8</span></button>
+			        <br>
+			      </div>
 			      
+			      
+			      aaaa<%= @select_item_name %>
 			      </div>
 			    </div>
 			  </div>
@@ -57,7 +59,7 @@
                                  <p class="glyphicon glyphicon-hand-right" aria-hidden="true" ></p>(20)&nbsp;
                                  <p class="glyphicon glyphicon-hand-down" aria-hidden="true"></p>(2)
           </span>
-          <div class="well well-sm">安かったので沢山買ったのですが飲み切れなかったので販売することにしました。よろしくお願いします。</div>
+          <div class="well well-sm"><%= @select_item.item_detail %></div>
         </div>
       </div>
       
