@@ -93,7 +93,8 @@ def make_users
     User.create!(
                  name: name,
                  email: email,
-                 password:0
+                 password: password,
+                 password_confirmation: password
       )
     make_user_util(n)
   end
