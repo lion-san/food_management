@@ -12,5 +12,6 @@
 //
 //
 //= require jquery-2.1.0.min
+//= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
