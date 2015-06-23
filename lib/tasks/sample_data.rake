@@ -15,7 +15,7 @@ def make_items
     name   = Faker::App.name
     detail = Faker::Hacker.say_something_smart
     price = 100
-    exchange_date = DateTime.now
+    now_datetime = DateTime.now
     
     Item.create!(
                  user_id: 1,
@@ -26,7 +26,7 @@ def make_items
                  category_id: 1,
                  item_status_id: 1,
                  exchange_method_id: 1,
-                 exchange_date: exchange_date,
+                 exchange_date: now_datetime,
                  del:0
       )
     make_item_comments(n)
