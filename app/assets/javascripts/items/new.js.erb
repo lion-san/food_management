@@ -11,17 +11,17 @@ var onClickAddBtn4 = function(){
   document.getElementById("imageFile4").click();
 }
 
-window.addEventListener("load", function(){
-  document.getElementById("imageFile1").addEventListener("click", function(){
+$(document).ready(function () {
+  document.getElementById("btn1").addEventListener("click", function(){
     onClickAddBtn1();
   });
-  document.getElementById("imageFile2").addEventListener("click", function(){
+  document.getElementById("btn2").addEventListener("click", function(){
     onClickAddBtn2();
   });
-  document.getElementById("imageFile3").addEventListener("click", function(){
+  document.getElementById("btn3").addEventListener("click", function(){
     onClickAddBtn3();
   });
-  document.getElementById("imageFile4").addEventListener("click", function(){
+  document.getElementById("btn4").addEventListener("click", function(){
     onClickAddBtn4();
   });
      

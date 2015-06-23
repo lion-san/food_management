@@ -9,22 +9,22 @@
       <h4>写真を登録してください。（最大4枚/1枚あたり5Mまで）</h4>
       <div class="row">
         <div class="col-xs-3">
-          <div class="thumbnail">
+          <div class="thumbnail" id="btn1">
             <%= image_tag 'add_picture.png' %>
           </div>
         </div>
         <div class="col-xs-3">
-          <div class="thumbnail">
+          <div class="thumbnail" id="btn2">
             <%= image_tag 'add_picture.png' %>
           </div>
         </div>
         <div class="col-xs-3">
-          <div class="thumbnail">
+          <div class="thumbnail" id="btn3">
             <%= image_tag 'add_picture.png' %>
           </div>
         </div>
         <div class="col-xs-3">
-          <div class="thumbnail">
+          <div class="thumbnail" id="btn4">
             <%= image_tag 'add_picture.png' %>
           </div>
         </div>
@@ -103,3 +103,5 @@
       <br><br><br>
 
       <%= javascript_include_tag 'items/new' %>
+      <%= javascript_include_tag 'bootstrap-datepicker' %>
+      <%= javascript_include_tag 'bootstrap-datepicker.ja' %>
