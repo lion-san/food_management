@@ -1,65 +1,27 @@
     <!-- thumbnail -->
       <div class="row">
+
+        <% @items.each do |item| %>
             <div class="col-xs-6 col-md-3">
               <div class="thumbnail">
-                <a href="./item_info.html">
-                  <%= image_tag('/photos/DSC_1122.jpg', :class => "img-rounded") %>
-                </a>
+                <%= link_to image_tag('/photos/DSC_1122.jpg', :class => "img-rounded"), item_path(item) %>
                 <div class="infos">
-                  <h4>RED BULL Blue Edition</h4>
-                  <div class="glyphicon glyphicon-star"></div>123 
-                  <div class="glyphicon glyphicon-pencil"></div>456 
-                  <div class="price">&yen;10,000</div>
+                  <h4><%= item.name %></h4>
+                  <div class="glyphicon glyphicon-star"></div><%= item.like %>
+                  <div class="glyphicon glyphicon-pencil"></div>123
+                  <div class="price">&yen;<%= item.price %></div>
                 </div>
               </div>
             </div>
-            <div class="col-xs-6 col-md-3">
-              <div class="thumbnail">
-                <a href="./item_info.html">
-                  <%= image_tag('/photos/DSC_1064.jpg', :class => "img-rounded") %>
-                </a>
-                <div class="infos">
-                  <h4>サラダ</h4>
-                  <div class="glyphicon glyphicon-star"></div>123 
-                  <div class="glyphicon glyphicon-pencil"></div>456 
-                  <div class="price">&yen;10,000</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <div class="thumbnail">
-                <a href="./item_info.html">
-                  <%= image_tag('/photos/DSC_1114.jpg', :class => "img-rounded") %>
-                </a>
-                <div class="infos">
-                  <h4>カクテル</h4>
-                  <div class="glyphicon glyphicon-star"></div>123 
-                  <div class="glyphicon glyphicon-pencil"></div>456 
-                  <div class="price">&yen;10,000</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <div class="thumbnail">
-                <a href="./item_info.html">
-                  <%= image_tag('/photos/DSC_1122.jpg', :class => "img-rounded") %>
-                </a>
-                <div class="infos">
-                  <h4>RED BULL Blue Edition</h4>
-                  <div class="glyphicon glyphicon-star"></div>123 
-                  <div class="glyphicon glyphicon-pencil"></div>456 
-                  <div class="price">&yen;10,000</div>
-                </div>
-              </div>
-            </div>
+        <% end %>
             
 
-      <a href="./item_regist.html">
-        
-        <div id="item_regist" class="camera-base">
-          <span class="glyphicon glyphicon-camera camera" aria-hidden="true"></span>
-          <br>
-          <p class="camera-text">出品</p>
-        </div>
-      </a>
-      </div>
+        <a href="./item_regist.html">
+          <div id="item_regist" class="camera-base">
+            <span class="glyphicon glyphicon-camera camera" aria-hidden="true"></span>
+            <br>
+            <p class="camera-text">出品</p>
+          </div>
+        </a>
+
+      </div><!--row-->
