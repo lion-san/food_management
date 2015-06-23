@@ -1,6 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_users
     make_items
     make_categories
   end
@@ -40,6 +41,7 @@ def make_item_comments(i)
   end
 end
 
+
 def make_categories
 	Category.create!(name:"魚介類")
 	Category.create!(name:"肉類")
@@ -62,3 +64,24 @@ def make_categories
 end
 
 
+def make_users
+  99.times do |n|
+    name   = Faker::Name.name
+    email   = "example-#{n+1}@nofoodloss.jp"
+    password = "password"
+    User.create!(
+                 name: name,
+                 email: email,
+                 password:0
+      )
+    make_user_util(n)
+  end
+end
+
+def make_user_util(i)
+    UserUtil.create!(
+                 point: 500,
+                 user_id: i,
+                 reset:0
+      )
+end
