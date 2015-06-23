@@ -33,12 +33,10 @@
 
 			      <div>
 			        <button class="btn btn-primary" type="button">いいね！ <span class="badge"><%= @select_item.like %></span></button>
-			        <button class="btn btn-primary" type="button" onclick="location.href='./comment_all_users.html'">コメントする&nbsp;<span class="badge">8</span></button>
+			        <button class="btn btn-primary" type="button" onclick="location.href='./comment_all_users.html'">コメント&nbsp;<span class="badge"><%= @select_item.item_comments.count %></span></button>
 			        <br>
 			      </div>
-			      
-			      
-			      aaaa<%= @select_item_name %>
+
 			      </div>
 			    </div>
 			  </div>
@@ -72,7 +70,7 @@
           <tbody>
             <tr>
               <td class="active">カテゴリー</td>
-              <td>飲料</td>
+              <td><%= @select_item.category.name %></td>
             </tr>
             <tr>
               <td class="active">商品の状態</td>
@@ -84,7 +82,7 @@
             </tr>
             <tr>
               <td class="active">交換希望日</td>
-              <td>2015年7月3日(金)</td>
+              <td><%= @select_item.exchange_date %></td>
             </tr>
           </tbody>
         </table>

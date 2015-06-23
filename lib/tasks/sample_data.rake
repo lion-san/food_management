@@ -2,6 +2,7 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     make_items
+    make_categories
   end
 end
 
@@ -38,3 +39,26 @@ def make_item_comments(i)
       )
   end
 end
+
+def make_categories
+	Category.create!(name:"魚介類")
+	Category.create!(name:"肉類")
+	Category.create!(name:"米、穀類、シリアル")
+	Category.create!(name:"野菜、果物")
+	Category.create!(name:"飲料")
+	Category.create!(name:"健康食品")
+	Category.create!(name:"ダイエット食品")
+	Category.create!(name:"加工食品")
+	Category.create!(name:"菓子、デザート")
+	Category.create!(name:"パスタ、麺類")
+	Category.create!(name:"パン")
+	Category.create!(name:"卵、乳製品")
+	Category.create!(name:"調味料、スパイス")
+	Category.create!(name:"詰め合わせ")
+	Category.create!(name:"ミルク、ベビーフード")
+	Category.create!(name:"非常食")
+	Category.create!(name:"料理本")
+	Category.create!(name:"その他")
+end
+
+
