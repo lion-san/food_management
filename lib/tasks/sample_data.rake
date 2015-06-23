@@ -1,6 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    make_users
     make_items
     make_categories
     make_item_statuses
@@ -79,4 +80,26 @@ def make_exchange_methods
 	ExchangeMethod.create!(name:"手渡し")
 	ExchangeMethod.create!(name:"郵送（元払い）")
 	ExchangeMethod.create!(name:"郵送（着払い）")
+end
+
+def make_users
+  99.times do |n|
+    name   = Faker::Name.name
+    email   = "example-#{n+1}@nofoodloss.jp"
+    password = "password"
+    User.create!(
+                 name: name,
+                 email: email,
+                 password:0
+      )
+    make_user_util(n)
+  end
+end
+
+def make_user_util(i)
+    UserUtil.create!(
+                 point: 500,
+                 user_id: i,
+                 reset:0
+      )
 end
