@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20150622071605) do
     t.binary   "picture4"
     t.string   "item_detail"
     t.integer  "category_id"
-    t.integer  "status_id"
+    t.integer  "item_status_id"
     t.integer  "exchange_method_id"
     t.datetime "exchange_date"
     t.integer  "del"
