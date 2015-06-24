@@ -3,4 +3,5 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :item_status
   belongs_to :exchange_method
+  belongs_to :user
 end

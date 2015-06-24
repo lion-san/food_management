@@ -1,4 +1,5 @@
 Nofoodloss::Application.routes.draw do
+  get "exchanges/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 

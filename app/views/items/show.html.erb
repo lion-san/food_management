@@ -1,3 +1,5 @@
+<% provide(:title, '商品情報確認') %>
+
 			<!-- 商品情報
 			================================================== -->
 			<div class="example">
@@ -28,7 +30,7 @@
 			               
 			      </div>
 			 
-			      <h2><%= @select_item.price %>point</h2>
+			      <h2><%= @select_item.price %>Point.</h2>
 			      <h4><%= @select_item.name %></h4>
 
 			      <div>
@@ -52,8 +54,8 @@
           
           
           
-          <h5><p class="text-danger">セネル</p></h5>
-          <span>出品数 &nbsp;322 &nbsp;&nbsp;評価&nbsp;&nbsp;<p class="glyphicon glyphicon-hand-up" aria-hidden="true" ></p>(300)&nbsp;
+          <h5><p class="text-danger"><%= @select_item.user.name %></p></h5>
+          <span>出品数 &nbsp;<%= @select_item.user.items.count %>&nbsp;&nbsp;評価&nbsp;&nbsp;<p class="glyphicon glyphicon-hand-up" aria-hidden="true" ></p>(300)&nbsp;
                                  <p class="glyphicon glyphicon-hand-right" aria-hidden="true" ></p>(20)&nbsp;
                                  <p class="glyphicon glyphicon-hand-down" aria-hidden="true"></p>(2)
           </span>
@@ -82,7 +84,7 @@
             </tr>
             <tr>
               <td class="active">交換希望日</td>
-              <td><%= @select_item.exchange_date %></td>
+              <td><%= @select_item.exchange_date.to_s(:org_format) %></td>
             </tr>
           </tbody>
         </table>

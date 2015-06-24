@@ -27,3 +27,4 @@ module Nofoodloss
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.woff *.eot *.svg *.ttf )
   end
 end
+
