@@ -1,0 +1,78 @@
+<% provide(:title, 'パスワードのリセット') %>
+<% provide(:sign_in_up, 'sign-in-up') %>
+<%= stylesheet_link_tag "sign-in-up" %>
+
+    <!-- Sign In/Sign Up section -->
+    <section class="sign-in-up-section">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <!-- Logo -->
+            <figure class="text-center">
+                <img class="img-logo" src="images/logo.png" alt="">
+            </figure> <!-- /.text-center -->
+            
+          </div> <!-- /.col-md-12 -->
+
+        </div> <!-- /.row -->
+
+
+
+
+        <section class="sign-in-up-content">
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <h4 class="text-center">パスワードのリセット</h4>
+
+              <%= form_for(:user, url: resetpass_path, :class=> 'sign-in-up-form') do |f| %>
+                
+                <!-- Input 1 -->
+                <div class="form-group">
+                  <%= f.text_field :email, :class=> 'form-control', :placeholder=>'メールアドレス' %>
+                </div> <!-- /.form-group -->
+
+
+                <!-- Button -->
+                <%= f.submit "リセット", class: "btn btn-success btn-block" %>
+
+                <!-- Sign In/Sign Up links -->
+                <br>
+                <br>
+                <section class="sign-in-up-links text-center">
+                  <p><span class="sep"></span> <%= link_to "ログインへ", signin_path %></p>                </section> <!-- /.sign-in-up-links -->
+                
+              <% end %> <!-- /.sign-in-up-form -->
+              
+            </div> <!-- /.col-md-12 -->
+
+          </div> <!-- /.row -->
+          
+        </section> <!-- /.sign-in-up-content -->
+
+
+
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <section class="footer-copyright text-center">
+
+              <p>Made with Shiojiri City & FUJITSU.</p>
+              
+            </section> <!-- /.footer-section -->
+            
+          </div> <!-- /.col-md-12 -->
+
+        </div> <!-- /.row -->
+        
+      </div> <!-- /.container -->
+
+    </section> <!-- /.sign-in-up-section -->

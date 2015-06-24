@@ -1,2 +1,95 @@
 <% provide(:title, 'アカウント作成') %>
-<% provide(:sign_up_in, true) %>
+<% provide(:sign_in_up, 'sign-in-up') %>
+<%= stylesheet_link_tag "sign-in-up" %>
+
+    <!-- Sign In/Sign Up section -->
+    <section class="sign-in-up-section">
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <!-- Logo -->
+            <figure class="text-center">
+                <%= image_tag("/images/logo.png", :class => "img-logo") %>
+            </figure> <!-- /.text-center -->
+            
+          </div> <!-- /.col-md-12 -->
+
+        </div> <!-- /.row -->
+
+
+
+
+        <section class="sign-in-up-content">
+
+          <div class="row">
+
+            <div class="col-md-12">
+
+              <h4 class="text-center">アカウント作成</h4>
+
+              <%= form_for(@user, :class=> 'sign-in-up-form') do |f| %>
+                <%= render 'shared/error_messages' %>
+                
+                <!-- Input 1 -->
+                <div class="form-group">
+                  <%= f.text_field :name, :class=> 'form-control', :placeholder=>'ニックネーム' %>
+                </div> <!-- /.form-group -->
+
+                <!-- Input 2 -->
+                <div class="form-group">
+                  <%= f.text_field :email, :class=> 'form-control', :placeholder=>'メールアドレス' %>
+                </div> <!-- /.form-group -->
+
+                <!-- Input 3 -->
+                <div class="form-group">
+                  <%= f.password_field :password, :class=> 'form-control', :placeholder=>'パスワード' %>
+                </div> <!-- /.form-group -->
+
+                <!-- Input 4 -->
+                <div class="form-group">
+                  <%= f.password_field :password_confirmation, :class=> 'form-control', :placeholder=>'パスワード（確認）' %>
+                </div> <!-- /.form-group -->
+
+
+                <!-- Button -->
+                <%= f.submit "登録", class: "btn btn-success btn-block" %>
+
+
+                <!-- Sign In/Sign Up links -->
+                <br><br>
+                <section class="sign-in-up-links text-center">
+                  <p>既にアカウントをお持ちの方 <%= link_to "ログイン", signin_path%></p>
+                </section> <!-- /.sign-in-up-links -->
+                
+              <% end %>
+              
+            </div> <!-- /.col-md-12 -->
+
+          </div> <!-- /.row -->
+          
+        </section> <!-- /.sign-in-up-content -->
+
+
+
+
+        <div class="row">
+
+          <div class="col-md-12">
+
+            <section class="footer-copyright text-center">
+
+              <p>Made with Shiojiri City & FUJITSU.</p>
+              
+            </section> <!-- /.footer-section -->
+            
+          </div> <!-- /.col-md-12 -->
+
+        </div> <!-- /.row -->
+        
+      </div> <!-- /.container -->
+
+    </section> <!-- /.sign-in-up-section -->

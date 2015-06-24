@@ -1,0 +1,50 @@
+    <div class="container">
+        <div class="row">
+    <!-- Navibar -->
+              <div class="col-md-12">
+                <nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">
+                        <%= image_tag('/images/touch-icon.png', :style => "max-width:100px; margin-top: -14px;",  :class => "img-logo") %>
+                      </a>
+
+
+                      <p class="navbar-text">
+                        <a href="javascript:void(0);" data-toggle="popover" title="お知らせ" rel="popover"                          
+                          data-html="true" data-placement="bottom">
+                            <span class="glyphicon glyphicon-send info" aria-hidden="false"></span>
+                        </a>
+                        <span class="my-badge badge badge-danger">222</span>
+                      </p>
+
+
+                    </div>
+                    <% if signed_in? %>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                        <!-- <li class="disabled"><a href="#">Link</a></li> -->
+                        <li><%= current_user.name%>さん</li>
+                        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                        <li class="divider"></li>
+                        <li>
+                          <%= link_to "Sign out", signout_path, method: :delete, data: {confirm: "ログアウトしますか？"} %>
+                        </li>
+                      </ul>
+                    </div><!-- /.navbar-collapse -->
+                    <% end %>
+                  </div><!-- /.container-fluid -->
+                </nav>
+              </div>
+        </div>
+    </div>
+
+

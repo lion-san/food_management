@@ -1,10 +1,18 @@
 Nofoodloss::Application.routes.draw do
   resources :users
-  match '/signup',  to: 'users#new',            via: 'get'
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :items
 
-  get "static_pages/home"
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
+  match '/reset', to: 'users#reset',            via: 'get'
+  match '/resetpass', to: 'users#resetpass',            via: 'post'
+
+  #root 'static_pages#home'
+  root 'sessions#new'
   get "static_pages/help"
   
   # The priority is based upon order of creation: first created -> highest priority.
