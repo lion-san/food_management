@@ -39,13 +39,13 @@
             <ul class="list-group">
               <h4>商品名と説明</h4>
               <li class="list-group-item">
-                <input type="text" class="form-control" placeholder="商品名（必須 40文字まで）">
+                <%= f.text_field :name, :class=>'form-control', :placeholder=>'商品名（必須 40文字まで）' %>
               </li>
               <li class="list-group-item">
-                <textarea style="height:150px" class="form-control"  placeholder="商品の説明（必須 1,000文字以内）
-（色、素材、重さ、定価、注意点など）
+                <%= f.text_area :item_detail, :style=>'height:150px', :class=>'form-control', :placeholder=>'商品の説明（必須 1,000文字以内）
+                  （色、素材、重さ、定価、注意点など）
                   
- 例）2015/4/3に100円で購入した乾パンです。未開封です。賞味期限は2020/2/1までです。"></textarea>
+ 例）2015/4/3に100円で購入した乾パンです。未開封です。賞味期限は2020/2/1までです。' %>
               </li>
             </ul>
          </div>
@@ -79,7 +79,8 @@
               <h4>価格</h4>
               <div class="input-group">
                 <span class="input-group-addon">P</span>
-                <input type="text" class="form-control" placeholder="0" style="text-align:right;">
+                <%= f.text_field :price, :style=>'text-align:right;', :class=>'form-control', :placeholder=>'0' %>
+              </li>
                 <span class="input-group-addon">point.</span>
               </div>
             </ul>
