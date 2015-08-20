@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623125516) do
+ActiveRecord::Schema.define(version: 20150819084950) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -96,6 +96,11 @@ ActiveRecord::Schema.define(version: 20150623125516) do
     t.integer  "del"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture1_content_type"
+    t.string   "picture2_content_type"
+    t.string   "picture3_content_type"
+    t.string   "picture4_content_type"
+    t.string   "thumbnail_content_type"
   end
 
   create_table "user_utils", force: true do |t|

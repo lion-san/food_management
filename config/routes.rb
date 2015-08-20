@@ -3,7 +3,15 @@ Nofoodloss::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
-  resources :items
+  resources :items do
+    member { 
+      get :picture1
+      get :picture2
+      get :picture3
+      get :picture4
+    }
+  end
+
 
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
