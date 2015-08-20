@@ -22,17 +22,25 @@ class ItemsController < ApplicationController
      @item.exchange_method_id = 1
      @item.exchange_date = Date.today
 
-     @item.picture1 = params[:item][:picture1].read
-     @item.picture1_content_type = params[:item][:picture1].content_type
+     if not params[:item][:picture1].nil?
+       @item.picture1 = params[:item][:picture1].read
+       @item.picture1_content_type = params[:item][:picture1].content_type
+     end
 
-     @item.picture2 = params[:item][:picture2].read
-     @item.picture2_content_type = params[:item][:picture2].content_type
+     if not params[:item][:picture2].nil?
+       @item.picture2 = params[:item][:picture2].read
+       @item.picture2_content_type = params[:item][:picture2].content_type
+     end
 
-     @item.picture3 = params[:item][:picture3].read
-     @item.picture3_content_type = params[:item][:picture3].content_type
+     if not params[:item][:picture3].nil?
+       @item.picture3 = params[:item][:picture3].read
+       @item.picture3_content_type = params[:item][:picture3].content_type
+     end
 
-     @item.picture4 = params[:item][:picture4].read
-     @item.picture4_content_type = params[:item][:picture4].content_type
+     if not params[:item][:picture4].nil?
+       @item.picture4 = params[:item][:picture4].read
+       @item.picture4_content_type = params[:item][:picture4].content_type
+     end
 
 
      if @item.save

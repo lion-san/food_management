@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     util = UserUtil.new
+    #初期ポイント
+    util.point = 50000
     @user.user_util = util
     if @user.save
       sign_in @user

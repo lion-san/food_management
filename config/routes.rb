@@ -1,5 +1,4 @@
 Nofoodloss::Application.routes.draw do
-  get "exchanges/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -9,6 +8,7 @@ Nofoodloss::Application.routes.draw do
       get :picture2
       get :picture3
       get :picture4
+      get "exchanges/new"
     }
   end
 
