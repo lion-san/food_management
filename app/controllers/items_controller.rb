@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update, :create, :picture1, :picture2, :picture3, :picture4]
+  before_action :signed_in_user, only: [:edit, :update, :create, :thumbnail, :picture1, :picture2, :picture3, :picture4]
 
   def new
     @item = Item.new
@@ -25,6 +25,8 @@ class ItemsController < ApplicationController
      if not params[:item][:picture1].nil?
        @item.picture1 = params[:item][:picture1].read
        @item.picture1_content_type = params[:item][:picture1].content_type
+
+       @item.thumbnail = @item.picture1
      end
 
      if not params[:item][:picture2].nil?
@@ -45,13 +47,20 @@ class ItemsController < ApplicationController
 
      if @item.save
 
-       redirect_to @item
+       redirect_to items_path
 
      else
        render 'new'
      end
 
 
+  end
+
+  def thumbnail
+    @item = Item.find(params[:id])
+    if not @item.thumbnail.nil?
+      send_data(@item.thumbnail, type: @item.picture1_content_type, disposition: :inline)
+    end
   end
 
   def picture1

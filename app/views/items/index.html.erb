@@ -5,7 +5,7 @@
         <% @items.each do |item| %>
             <div class="col-xs-6 col-md-3">
               <div class="thumbnail">
-                <%= link_to image_tag('/photos/DSC_1122.jpg', :class => "img-rounded"), item_path(item) %>
+                <%= link_to image_tag( thumbnail_item_path(item), :class => "img-rounded"), item_path(item) %>
                 <div class="infos">
                   <h4><%= item.name %></h4>
                   <div class="glyphicon glyphicon-star"></div><%= item.like %>

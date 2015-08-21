@@ -4,11 +4,13 @@ Nofoodloss::Application.routes.draw do
 
   resources :items do
     member { 
+      get :thumbnail
       get :picture1
       get :picture2
       get :picture3
       get :picture4
-      get "exchanges/new"
+      get 'exchanges/new'
+      post 'exchanges/create'
     }
   end
 
