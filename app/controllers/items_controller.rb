@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
      @item.exchange_method_id = 1
      @item.exchange_date = Date.today
 
+     if @item.price.nil?
+       @item.price = 0
+     end
+
      if not params[:item][:picture1].nil?
        @item.picture1 = params[:item][:picture1].read
        @item.picture1_content_type = params[:item][:picture1].content_type

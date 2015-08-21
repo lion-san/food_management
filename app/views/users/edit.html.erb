@@ -32,6 +32,11 @@
       <%= f.password_field :password_confirmation %>
       </div>
 
+      <div class="form-group">
+        保有ポイント：<%= @user.user_util.point %>
+      </div>
+
+
       <%= f.submit "Save changes", class: "btn btn-success btn-block" %>
     <% end %>
 

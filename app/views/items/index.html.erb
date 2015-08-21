@@ -7,6 +7,9 @@
               <div class="thumbnail">
                 <%= link_to image_tag( thumbnail_item_path(item), :class => "img-rounded"), item_path(item) %>
                 <div class="infos">
+                  <% if not item.exchange.nil? %>
+                    <h4>【売約済】</h4>
+                  <% end %>
                   <h4><%= item.name %></h4>
                   <div class="glyphicon glyphicon-star"></div><%= item.like %>
                 <div class="glyphicon glyphicon-pencil"></div><%= item.item_comments.count %>

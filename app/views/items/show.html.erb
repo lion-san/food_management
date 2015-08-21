@@ -54,9 +54,13 @@
 			      <h2><%= @item.price %>Point.</h2>
 			      <h4><%= @item.name %></h4>
 
+            <% if not @item.exchange.nil? %>
+              <h4>【この商品は売約済みです】<h4>
+            <% end %>
+
 			      <div>
 			        <button class="btn btn-primary" type="button">いいね！ <span class="badge"><%= @item.like %></span></button>
-			        <button class="btn btn-primary" type="button" onclick="location.href='./comment_all_users.html'">コメント&nbsp;<span class="badge"><%= @item.item_comments.count %></span></button>
+			        <button class="btn btn-primary" type="button" onclick="location.href='#'">コメント&nbsp;<span class="badge"><%= @item.item_comments.count %></span></button>
 			        <br>
 			      </div>
 
@@ -114,7 +118,12 @@
       <!-- 購入手続きボタン
       ================================================== -->
       <div class="col-md-12">
+
+      <% if @item.exchange.nil? %>
         <%= button_to "購入手続きへ", exchanges_new_item_path, class:"btn-lg btn-danger btn-block", :method => :get %>
+      <% else %>
+        <%= button_to "戻る", items_path, class:"btn-lg btn-block", :method => :get %>
+      <% end %>
+
       </div>
-      
       <br><br>
