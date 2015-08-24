@@ -28,6 +28,7 @@ gem 'jbuilder', '1.0.2'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-turbolinks'
 
+gem 'rmagick', require: 'RMagick'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

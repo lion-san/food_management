@@ -1,3 +1,5 @@
+require 'RMagick'
+
 class ItemsController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :create, :thumbnail, :picture1, :picture2, :picture3, :picture4]
 
@@ -27,24 +29,25 @@ class ItemsController < ApplicationController
      end
 
      if not params[:item][:picture1].nil?
-       @item.picture1 = params[:item][:picture1].read
+       ori_image = params[:item][:picture1].read
+       @item.picture1 = resize_image(ori_image , 640, 480 )
        @item.picture1_content_type = params[:item][:picture1].content_type
 
-       @item.thumbnail = @item.picture1
+       @item.thumbnail = resize_image( ori_image, 320, 240 )
      end
 
      if not params[:item][:picture2].nil?
-       @item.picture2 = params[:item][:picture2].read
+       @item.picture2 = resize_image( params[:item][:picture2].read, 640, 480 )
        @item.picture2_content_type = params[:item][:picture2].content_type
      end
 
      if not params[:item][:picture3].nil?
-       @item.picture3 = params[:item][:picture3].read
+       @item.picture3 = resize_image( params[:item][:picture3].read, 640, 480 )
        @item.picture3_content_type = params[:item][:picture3].content_type
      end
 
      if not params[:item][:picture4].nil?
-       @item.picture4 = params[:item][:picture4].read
+       @item.picture4 = resize_image( params[:item][:picture4].read, 640, 480 )
        @item.picture4_content_type = params[:item][:picture4].content_type
      end
 
@@ -100,6 +103,13 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:user_id, :name, :price, :item_detail, :category_id,
                                   :item_status_id, :exchange_method_id, :exchange_date)
+    end
+
+    def resize_image(image, x, y)
+      image_magick = Magick::Image.from_blob(image).shift
+      image_magick = image_magick.resize_to_fit(x, y)
+
+      return image_magick.to_blob
     end
 
 end
