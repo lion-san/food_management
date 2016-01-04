@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration
       t.integer :store_id
       t.integer :category_id
       t.string :item_detail
-      t.blob :thumbnail
+      t.binary :thumbnail
       t.string :thumbnail_content_type
       t.datetime :standard_best_before_date
 
