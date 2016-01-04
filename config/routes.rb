@@ -1,19 +1,20 @@
 Nofoodloss::Application.routes.draw do
-  get "exchanges/next"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :items do
     member { 
       get :thumbnail
-      get :picture1
-      get :picture2
-      get :picture3
-      get :picture4
-      get 'exchanges/new'
-      post 'exchanges/create'
     }
   end
+
+  resources :user_items do
+    member { 
+      get :thumbnail
+    }
+  end
+
+  resources :stocks
 
 
   match '/signup',  to: 'users#new',            via: 'get'

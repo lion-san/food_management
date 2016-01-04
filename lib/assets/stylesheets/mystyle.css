@@ -28,10 +28,10 @@ span.info-badge {
   top: -34px;
 }
 
-div#item_regist {  
+div#stock_regist {  
     position: fixed !important;  
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     width: 88px;  
     height: 88px;  
     background-color: #FC6E51;  

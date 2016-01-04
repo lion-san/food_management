@@ -1,0 +1,37 @@
+var onClickAddBtn1 = function(){
+  document.getElementById("imageFile1").click();
+}
+
+
+$(document).ready(function () {
+  document.getElementById("btn1").addEventListener("click", function(){
+    onClickAddBtn1();
+  });
+
+     
+    if (!window.File){
+        result.innerHTML = "File API 使用不可";
+        return;
+    }
+     
+    //Preview1
+    document.getElementById("imageFile1").addEventListener("change", function(){
+        var reader = new FileReader();
+        reader.onload = function(event){
+            document.getElementById("image1").src = reader.result;
+        }
+        var file = document.getElementById("imageFile1").files[0];
+        reader.readAsDataURL(file);
+    }, true);
+
+}, true);
+
+
+$(function() {
+    $('#dp1').datepicker({
+        format: 'yyyy/mm/dd',
+        language: 'ja',
+       autoclose: true,
+       clearBtn: true 
+    });
+});

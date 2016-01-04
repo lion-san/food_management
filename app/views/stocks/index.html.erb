@@ -1,0 +1,27 @@
+<% provide(:title, 'Stock list') %>
+    <!-- thumbnail -->
+      <div class="row">
+
+        <% @stocks.each do |stock| %>
+            <div class="col-xs-6 col-md-3">
+              <div class="thumbnail">
+                <%= image_tag( thumbnail_user_item_path(stock.user_item), :class => "img-rounded") %>
+                <div class="infos">
+                  <h4><%= stock.user_item.name %></h4>
+                  <div class="price"><%= stock.price %> 円</div>
+                </div>
+              </div>
+            </div>
+        <% end %>
+            
+        <%= link_to new_user_item_path do %>
+          <div id="stock_regist" class="camera-base">
+            <span class="glyphicon glyphicon-camera camera" aria-hidden="true"></span>
+            <br>
+            <p class="camera-text">登録</p>
+          </div>
+      <% end %>
+
+      </div><!--row-->
+
+      <%= javascript_include_tag 'stocks/index' %>

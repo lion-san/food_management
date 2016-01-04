@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def new
-
     @user = User.new
   end
 
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "ようこそ!"
-      redirect_to items_path
+      redirect_to stocks_path
     else
       render 'new'
     end
@@ -50,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to items_path
+      redirect_to stocks_path
     else
       render 'edit'
     end
