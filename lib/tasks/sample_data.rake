@@ -47,6 +47,7 @@ def make_item_comments(i)
 end
 
 def make_categories
+  Category.delete_all
 	Category.create!(id:1, name:"パン")
 	Category.create!(id:2, name:"魚介類")
 	Category.create!(id:3, name:"果物")
@@ -67,6 +68,7 @@ def make_categories
 end
 
 def make_item_statuses
+  ItemStatus.delete_all
 	ItemStatus.create!(id:1, name:"【未使用】")
 	ItemStatus.create!(id:2, name:"残り【3/4】")
 	ItemStatus.create!(id:3, name:"残り【1/2】")
