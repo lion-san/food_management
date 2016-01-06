@@ -2,6 +2,10 @@
   text-align:right;
 }
 
+.purchase_after_days {
+  text-align:right;
+}
+
 .must {
   color: darkgray;
 }

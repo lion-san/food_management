@@ -37,6 +37,15 @@
                 <% end %>
                 <div class="infos">
                   <h4><%= stock.user_item.name %></h4>
+                  <div class="purchase_after_days">
+                    購入日から【
+                    <%= 
+                       (Date.today - Date.new(
+                         stock.purchase_date.to_s(:yyyy).to_i,
+                         stock.purchase_date.to_s(:mm).to_i,
+                         stock.purchase_date.to_s(:dd).to_i) ).to_i
+                    %>
+                    日】経過</div>
                   <div class="price"><%= stock.price %> 円</div>
                   <div class="col-xs-12 col-md-12 label label-default"><%= stock.item_status.name %></div>
                 </div>
