@@ -21,15 +21,15 @@
 
               %>
               <% if d >= margin then %>
-              <span class="col-xs-12 col-md-12 label label-info">
+              <span class="col-xs-12 col-md-12 best_before_date label label-info">
               <% elsif d >= 0 then %>
-              <span class="col-xs-12 col-md-12 label label-warning">
+              <span class="col-xs-12 col-md-12 best_before_date label label-warning">
               <% else %>
-              <span class="col-xs-12 col-md-12 label label-danger">
+              <span class="col-xs-12 col-md-12 best_before_date label label-danger">
               <% end %>
                 消味期限:<%= stock.best_before_date.to_s(:ymd) %>
             <% else #賞味期限無し  %>
-              <span class="col-xs-12 col-md-12 label label-default">賞味期限情報無し</span>
+              <span class="col-xs-12 col-md-12 best_before_date label label-default">賞味期限情報無し</span>
             <% end %>
               </span>
               <span class="col-xs-12 col-md-12 label label-default">購入日:<%= stock.purchase_date.to_s(:ymd) %></span>

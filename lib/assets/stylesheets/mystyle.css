@@ -58,3 +58,7 @@ p.navbar-text {
   top: -10px;
   position:relative;
 }
+
+.best_before_date {
+  height: 18px;
+}
