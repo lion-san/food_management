@@ -47,21 +47,30 @@ def make_item_comments(i)
 end
 
 def make_categories
-	Category.create!(name:"パン")
-	Category.create!(name:"魚、魚介類")
-	Category.create!(name:"果物")
-	Category.create!(name:"インスタント食品")
-	Category.create!(name:"調味料ほか")
-	Category.create!(name:"肉")
-	Category.create!(name:"野菜")
-	Category.create!(name:"飲料類")
+	Category.create!(id:1, name:"パン")
+	Category.create!(id:2, name:"魚介類")
+	Category.create!(id:3, name:"果物")
+	Category.create!(id:4, name:"インスタント食品")
+	Category.create!(id:5, name:"調味料ほか")
+	Category.create!(id:6, name:"肉類")
+	Category.create!(id:7, name:"野菜")
+	Category.create!(id:8, name:"飲料類")
+  ######
+	Category.create!(id:9, name:"卵、乳製品")
+	Category.create!(id:10, name:"米、穀類、シリアル")
+	Category.create!(id:11, name:"冷凍食品")
+	Category.create!(id:12, name:"缶詰、瓶詰")
+	Category.create!(id:13, name:"菓子、デザート")
+	Category.create!(id:14, name:"パスタ、麺類")
+	Category.create!(id:15, name:"非常食")
+	Category.create!(id:16, name:"その他")
 end
 
 def make_item_statuses
-	ItemStatus.create!(name:"【未使用】")
-	ItemStatus.create!(name:"残り【3/4】")
-	ItemStatus.create!(name:"残り【1/2】")
-	ItemStatus.create!(name:"残り【1/4】")
+	ItemStatus.create!(id:1, name:"【未使用】")
+	ItemStatus.create!(id:2, name:"残り【3/4】")
+	ItemStatus.create!(id:3, name:"残り【1/2】")
+	ItemStatus.create!(id:4, name:"残り【1/4】")
 end
 
 def make_exchange_methods
