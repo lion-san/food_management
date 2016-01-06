@@ -27,7 +27,7 @@ class UserItemsController < ApplicationController
      if not params[:user_item][:thumbnail].nil?
        ori_image = params[:user_item][:thumbnail].read
 
-       @item.thumbnail = resize_image( ori_image, 320, 240 )
+       @item.thumbnail = resize_image( ori_image, 400, 266 )
        @item.thumbnail_content_type = params[:user_item][:thumbnail].content_type
        @item.use_thumbnail = true
      end
@@ -65,7 +65,9 @@ class UserItemsController < ApplicationController
 
     def resize_image(image, x, y)
       image_magick = Magick::Image.from_blob(image).shift
-      image_magick = image_magick.resize_to_fit(x, y)
+      #image_magick = image_magick.auto_orient
+      #image_magick = image_magick.resize_to_fit(x, y)
+      image_magick = image_magick.resize_to_fill(x, y)
 
       return image_magick.to_blob
     end
