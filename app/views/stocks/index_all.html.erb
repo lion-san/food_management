@@ -39,6 +39,13 @@
                   <h4><%= stock.user_item.name %></h4>
                   <div class="price"><%= stock.price %> 円</div>
                   <div class="col-xs-12 col-md-12 label label-default"><%= stock.item_status.name %></div>
+                  <div class="col-xs-12 col-md-12 label label-default">
+                    <% if stock.delete_status == 0 then %>
+                        在庫中
+                    <% else %>
+                        消費済み
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>

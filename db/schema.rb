@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104101309) do
+ActiveRecord::Schema.define(version: 20160105062405) do
 
   create_table "alerts", force: true do |t|
     t.string   "name"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160104101309) do
     t.datetime "standard_best_before_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "use_thumbnail",             default: false
   end
 
   create_table "stocks", force: true do |t|
@@ -63,12 +64,12 @@ ActiveRecord::Schema.define(version: 20160104101309) do
     t.integer  "user_item_id"
     t.integer  "item_status_id"
     t.integer  "item_location_id"
-    t.integer  "price"
+    t.integer  "price",            default: 0
     t.datetime "purchase_date"
     t.datetime "best_before_date"
-    t.integer  "delete_status"
+    t.integer  "delete_status",    default: 0
     t.integer  "alert_id"
-    t.integer  "alert_is_read"
+    t.integer  "alert_is_read",    default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160104101309) do
     t.integer  "store_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "use_thumbnail",             default: false
   end
 
   create_table "user_utils", force: true do |t|

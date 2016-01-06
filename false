@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20160105055152_add_use_thumbnail_to_user_item.rb

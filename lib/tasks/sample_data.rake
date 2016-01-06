@@ -5,7 +5,7 @@ namespace :db do
     #make_items
     make_categories
     make_item_statuses
-    make_exchange_methods
+    #make_exchange_methods
   end
 end
 
@@ -47,33 +47,21 @@ def make_item_comments(i)
 end
 
 def make_categories
-	Category.create!(name:"魚介類")
-	Category.create!(name:"肉類")
-	Category.create!(name:"米、穀類、シリアル")
-	Category.create!(name:"野菜、果物")
-	Category.create!(name:"飲料")
-	Category.create!(name:"健康食品")
-	Category.create!(name:"ダイエット食品")
-	Category.create!(name:"加工食品")
-	Category.create!(name:"菓子、デザート")
-	Category.create!(name:"パスタ、麺類")
 	Category.create!(name:"パン")
-	Category.create!(name:"卵、乳製品")
-	Category.create!(name:"調味料、スパイス")
-	Category.create!(name:"詰め合わせ")
-	Category.create!(name:"ミルク、ベビーフード")
-	Category.create!(name:"非常食")
-	Category.create!(name:"料理本")
-	Category.create!(name:"その他")
+	Category.create!(name:"魚、魚介類")
+	Category.create!(name:"果物")
+	Category.create!(name:"インスタント食品")
+	Category.create!(name:"調味料ほか")
+	Category.create!(name:"肉")
+	Category.create!(name:"野菜")
+	Category.create!(name:"飲料類")
 end
 
 def make_item_statuses
-	ItemStatus.create!(name:"新品、未使用")
-	ItemStatus.create!(name:"未使用に近い")
-	ItemStatus.create!(name:"目立った傷や汚れなし")
-	ItemStatus.create!(name:"やや傷や汚れあり")
-	ItemStatus.create!(name:"傷や汚れあり")
-	ItemStatus.create!(name:"全体的に状態が悪い")
+	ItemStatus.create!(name:"【未使用】")
+	ItemStatus.create!(name:"残り【3/4】")
+	ItemStatus.create!(name:"残り【1/2】")
+	ItemStatus.create!(name:"残り【1/4】")
 end
 
 def make_exchange_methods

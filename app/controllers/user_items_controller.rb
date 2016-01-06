@@ -13,24 +13,23 @@ class UserItemsController < ApplicationController
      @item = UserItem.new(user_item_params)
 
      @item.user_id = @current_user.id
+
      @item.stocks.first.user_id = @item.user_id
-
-     #For UserItemTest
-     @item.category_id = 1
-
-     #For StockTest
-     @item.stocks.first.item_status_id = 1
-     @item.stocks.first.item_location_id = 1
-
      if @item.stocks.first.price.nil?
        @item.stocks.first.price = 0
      end
 
+
+     #For StockTest
+     @item.stocks.first.item_location_id = 1
+
+     #thumbnail
      if not params[:user_item][:thumbnail].nil?
        ori_image = params[:user_item][:thumbnail].read
 
        @item.thumbnail = resize_image( ori_image, 320, 240 )
        @item.thumbnail_content_type = params[:user_item][:thumbnail].content_type
+       @item.use_thumbnail = true
      end
 
 

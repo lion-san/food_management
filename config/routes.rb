@@ -1,4 +1,6 @@
 Nofoodloss::Application.routes.draw do
+  resources :item_statuses
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -14,7 +16,13 @@ Nofoodloss::Application.routes.draw do
     }
   end
 
-  resources :stocks
+  match 'stocks',  to: 'stocks#index',  via: 'get'
+  match 'stocks/edit_all',  to: 'stocks#edit_all',  via: 'get'
+  match 'stocks',  to: 'stocks#update',  via: 'put'
+  match 'stocks',  to: 'stocks#destroy',  via: 'delete'
+  get "stocks/index_all"
+
+  resources :categories
 
 
   match '/signup',  to: 'users#new',            via: 'get'
@@ -22,7 +30,7 @@ Nofoodloss::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   match '/reset', to: 'users#reset',            via: 'get'
-  match '/resetpass', to: 'users#resetpass',            via: 'post'
+  match '/resetpass', to: 'users#resetpass',    via: 'post'
 
   #root 'static_pages#home'
   root 'sessions#new'

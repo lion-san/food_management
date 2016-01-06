@@ -19,8 +19,9 @@
       <div class="row">
          <div class="col-md-12">
             <ul class="list-group">
-              <h4>商品名と説明</h4>
+              <h4>商品名(必須)</h4>
               <%= f.text_field :name %>
+              <h4>商品の説明</h4>
               <%= f.text_field :item_detail %>
             </ul>
          </div>
@@ -30,9 +31,8 @@
         <div class="row">
          <div class="col-md-12">                        
             <ul class="list-group">
-              <h4>商品の詳細</h4>
-              <a href="#" class="list-group-item">カテゴリー<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span><p class="pull-right must">（必須）</p></a>
-              <a href="#" class="list-group-item">商品の状態<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span><p class="pull-right must">（必須）</p></a>
+              <h4>商品の種類</h4>
+              <%= f.collection_select :category_id, Category.all, :id, :name %>
             </ul>
          </div>
 
@@ -43,7 +43,7 @@
 
          <div class="col-md-12">
             <ul class="list-group">
-              <h4>購入日</h4>
+              <h4>購入日(必須)</h4>
             </ul>
             <ul class="list-group">
               <%= sf.text_field :purchase_date, :id=>'dp1', :readonly=>'readonly', :maxlength=>'10' %>
@@ -52,7 +52,11 @@
               <h4>賞味期限</h4>
             </ul>
             <ul class="list-group">
-              <%= sf.text_field :best_before_date, :id=>'dp1', :readonly=>'readonly', :maxlength=>'10' %>
+              <%= sf.text_field :best_before_date, :id=>'dp2', :readonly=>'readonly', :maxlength=>'10' %>
+            </ul>
+            <ul class="list-group">
+              <h4>商品の状態</h4>
+              <%= sf.collection_select :item_status_id, ItemStatus.all, :id, :name %>
             </ul>
          </div>         
 
@@ -78,7 +82,7 @@
            <br><br>
          </div>
          <div class="col-md-12">
-           <%= f.submit "出品する", class:"btn-lg btn-danger btn-block" %>
+           <%= f.submit "登録する", class:"btn-lg btn-danger btn-block" %>
          </div>
       </div>
 
