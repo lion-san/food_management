@@ -13,6 +13,6 @@
  *= require_tree .
  *= require 'site.min'
  *= require 'mystyle'
- *= require 'square/red'
+ *= require 'icheck/square/red'
  */
 

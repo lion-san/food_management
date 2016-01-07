@@ -29,6 +29,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-turbolinks'
 
 gem 'rmagick', require: 'RMagick'
+gem 'icheck-rails'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
