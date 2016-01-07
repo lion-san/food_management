@@ -2,10 +2,10 @@
     <!-- thumbnail -->
       <div class="row">
 
-        <%# form_tag stocks_path, :id=>"stocks",  method: :put do %>
+        <%= form_tag stocks_path, :id=>"stocks",  method: :put do %>
 
         <% @stocks.each do |stock| %>
-          <%# fields_for "stocks[]", stock do |fi| %>
+          <%= fields_for "stocks[]", stock do |fi| %>
 
             <div class="col-xs-6 col-md-3">
             <% if not stock.best_before_date.nil? then %>
@@ -27,9 +27,10 @@
               <% else %>
               <span class="col-xs-12 col-md-12 best_before_date label label-danger">
               <% end %>
-                消味期限:<%= stock.best_before_date.to_s(:ymd) %>
+                賞味期限:<%= stock.best_before_date.to_s(:ymd) %>
             <% else #賞味期限無し  %>
-              <span class="col-xs-12 col-md-12 best_before_date label label-default">賞味期限情報無し</span>
+              <span class="col-xs-12 col-md-12 best_before_date label label-default">
+                賞味期限情報無し
             <% end %>
               </span>
               <span class="col-xs-12 col-md-12 label label-default">購入日:<%= stock.purchase_date.to_s(:ymd) %></span>
@@ -42,14 +43,16 @@
                 <div class="infos">
                   <h4><%= stock.user_item.name %></h4>
                   <div class="price"><%= stock.price %> 円</div>
-                  <%#  fi.collection_select :item_status_id, ItemStatus.all, :id, :name %>
-                  <%= button_to "削除", { :action => "destroy", :id => stock.id}, :confirm => "本当に削除しますか?", :method => :delete, :class=>"btn btn-danger btn-block" %>
-                  <%# fi.check_box :item_status_id,  {}, true, false %>
+                  <%=  fi.collection_select :item_status_id, ItemStatus.all, :id, :name %>
+                  <%# button_to "削除", { :action => "destroy", :id => stock.id}, :confirm => "本当に削除しますか?", :method => :delete, :class=>"btn btn-danger btn-block" %>
+                  <button type="button" class="btn btn-default btn-block">
+                    削除 <%= fi.check_box :delete_status, {:class => ''} %>　　　　
+                  </button>
                 </div>
               </div>
             </div>
           <% end %>
-        <% #end %>
+        <% end %>
 
         <a href='#' onclick="$('#stocks').submit()">
           <div id="stock_regist" class="camera-base">
@@ -58,7 +61,7 @@
             <p class="camera-text">保存</p>
           </div>
         </a>
-      <% #end %>
+      <% end %>
             
 
       </div><!--row-->

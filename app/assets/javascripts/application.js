@@ -16,4 +16,5 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap.min.js
+//= require icheck.min.js
 //= require_tree .

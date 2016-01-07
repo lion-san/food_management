@@ -43,7 +43,7 @@ class StocksController < ApplicationController
 
   private
     def stocks_params
-      params.permit(stocks: [:item_status_id])[:stocks]
+      params.permit(stocks: [:item_status_id, :delete_status])[:stocks]
     end
 
 end

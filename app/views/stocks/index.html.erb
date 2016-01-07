@@ -23,9 +23,10 @@
               <% else %>
               <span class="col-xs-12 col-md-12 best_before_date label label-danger">
               <% end %>
-                消味期限:<%= stock.best_before_date.to_s(:ymd) %>
+                賞味期限:<%= stock.best_before_date.to_s(:ymd) %>
             <% else #賞味期限無し  %>
-              <span class="col-xs-12 col-md-12 best_before_date label label-default">賞味期限情報無し</span>
+              <span class="col-xs-12 col-md-12 best_before_date label label-default">
+                賞味期限情報無し
             <% end %>
               </span>
               <span class="col-xs-12 col-md-12 label label-default">購入日:<%= stock.purchase_date.to_s(:ymd) %></span>
