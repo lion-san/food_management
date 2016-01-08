@@ -9,7 +9,9 @@ require "csv"
 
 CSV.foreach('db/okude.csv') do |row|
 
-    a = UserItem.create(:user_id => 3, :name => row[1], :category_id =>16 )
-    Stock.create(:user_item_id =>a.id, :user_id => 3, :purchase_date => row[0], :price => row[2],
+  # n:user_id
+  n = 1
+    a = UserItem.create(:user_id => n, :name => row[1], :category_id =>16 )
+    Stock.create(:user_item_id =>a.id, :user_id => n, :purchase_date => row[0], :price => row[2],
                :item_status_id =>1 )
 end

@@ -28,6 +28,11 @@ class StocksController < ApplicationController
     redirect_to stocks_edit_all_path
   end
 
+  def sort_item
+      @stocks = Stock.where( user_id: current_user.id, 
+                               delete_status: 0 ).order("best_before_date ASC")
+    redirect_to stocks_path
+  end
 
   #Delete
   def destroy

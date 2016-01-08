@@ -30,6 +30,7 @@ Nofoodloss::Application.routes.draw do
   match 'stocks',  to: 'stocks#update',  via: 'put'
   match 'stocks',  to: 'stocks#destroy',  via: 'delete'
   get "stocks/index_all"
+  get "stocks/sort_item"
 
   resources :categories
 

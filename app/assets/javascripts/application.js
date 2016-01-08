@@ -17,4 +17,5 @@
 //= require turbolinks
 //= require bootstrap.min.js
 //= require icheck
+//= require common
 //= require_tree .
