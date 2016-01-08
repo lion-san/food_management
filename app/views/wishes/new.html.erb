@@ -34,7 +34,8 @@
               <h4>商品の種類</h4>
 
               <li class="list-group-item">
-              <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => true %>
+                <%= f.collection_select :category_id, Category.all, :id, :name,
+                  :selected => Category.count , :include_blank => true %>
               </li>
             </ul>
          </div>
@@ -49,12 +50,6 @@
                 :placeholder=> 'メモ等にお使い頂けます。'
                 %>
               </li>
-              <h4>価格</h4>
-              <div class="input-group">
-
-                <%= sf.text_field :price, :style=>'text-align:right;', :class=>'form-control', :placeholder=>'0' %>
-                <span class="input-group-addon"> 円</span>
-              </div>
             </ul>
          </div>
         </div>
