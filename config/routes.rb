@@ -1,4 +1,6 @@
 Nofoodloss::Application.routes.draw do
+  get "admin/users"
+  get "admin/stocks"
   resources :item_statuses
 
   resources :users

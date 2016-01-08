@@ -19,10 +19,15 @@
       <div class="row">
          <div class="col-md-12">
             <ul class="list-group">
-              <h4>商品名(必須)</h4>
-              <%= f.text_field :name %>
-              <h4>商品の説明</h4>
-              <%= f.text_field :item_detail %>
+              <h4>商品名と説明</h4>
+                            <li class="list-group-item">
+                <%= f.text_field :name, :class=>'form-control', :placeholder=>'商品名（必須 40文字まで）' %>
+              </li>
+              <li class="list-group-item">
+                <%= f.text_area :item_detail, :style=>'height:150px', :class=>'form-control', :placeholder=>'商品の説明（任意 1,000文字以内）
+メモ等にお使い頂けます。'
+              %>
+              </li>
             </ul>
          </div>
       </div>
@@ -64,7 +69,6 @@
             <ul class="list-group">
               <h4>価格</h4>
               <div class="input-group">
-                <span class="input-group-addon">P</span>
 
                 <%= sf.text_field :price, :style=>'text-align:right;', :class=>'form-control', :placeholder=>'0' %>
                 <span class="input-group-addon"> 円</span>

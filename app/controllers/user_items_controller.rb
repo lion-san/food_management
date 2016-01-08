@@ -5,8 +5,11 @@ class UserItemsController < ApplicationController
 
 
   def new
+
     @item = UserItem.new
     @item.stocks.build
+    @item.stocks.first.price = nil
+
   end
 
   def create
