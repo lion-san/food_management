@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     #make_users
     #make_items
+    #make_items
     make_categories
     make_item_statuses
     #make_exchange_methods
