@@ -1,0 +1,32 @@
+<% provide(:title, 'Wishes list') %>
+    <!-- thumbnail -->
+      <div class="row">
+
+        <% @wishes.each do |wish| %>
+            <div class="col-xs-6 col-md-3">
+              <span class="col-xs-12 col-md-12 label label-default">登録日:<%= wish.created_at.to_s(:ymd) %></span>
+              <div class="thumbnail">
+                <% if wish.user_item.use_thumbnail  %>
+                <%= image_tag( thumbnail_user_item_path(wish.user_item), :class => "img-rounded") %>
+                <% else %>
+                <%= image_tag( 'ingradients/' + wish.user_item.category_id.to_s + ".jpg", :class => "img-rounded") %>
+                <% end %>
+                <div class="infos">
+                  <h4><%= wish.user_item.name %></h4>
+                  <div class="price"><%= wish.price %> 円</div>
+                </div>
+              </div>
+            </div>
+      <% end %>
+
+        <%= link_to wishes_new_path do %>
+          <div id="stock_regist" class="camera-base">
+            <span class="glyphicon glyphicon-camera camera" aria-hidden="true"></span>
+            <br>
+            <p class="camera-text">登録</p>
+          </div>
+        <% end %>
+
+      </div><!--row-->
+
+      <%= javascript_include_tag 'wishes/index' %>

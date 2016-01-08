@@ -1,4 +1,11 @@
 Nofoodloss::Application.routes.draw do
+  #get "wishes/index"
+  match 'wishes',  to: 'wishes#index',  via: 'get'
+  get   "wishes/edit_all"
+  get   "wishes/new"
+  match 'wishes', to: 'wishes#create',    via: 'post'
+  match 'wishes',  to: 'wishes#update',  via: 'put'
+
   get "admin/users"
   get "admin/stocks"
   resources :item_statuses

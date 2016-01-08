@@ -48,6 +48,22 @@ div#stock_regist {
     -moz-border-radius: 50%;
 }
 
+div#wish_regist {  
+    position: fixed !important;  
+    position: absolute;
+    bottom: 5px;
+    width: 88px;  
+    height: 88px;  
+    background-color: #FC6E51;  
+    color: #fff;
+    left: 10px;
+    
+     /* 角を丸くする */
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
 .dropdown-menu {
   background-color: #ffffff;
   border: none;
