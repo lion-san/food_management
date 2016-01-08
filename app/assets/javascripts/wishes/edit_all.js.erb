@@ -1,0 +1,36 @@
+$(document).ready(function(){
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_square-red',
+    radioClass: 'iradio_square-red',
+    increaseArea: '20%' // optional
+  });
+});
+//スクロールされた時
+var timer1 = false;
+$(window).scroll(function() {
+    
+    $("#wish_regist").fadeOut("normal");
+    
+    if (timer1 !== false) {
+        clearTimeout(timer1);
+    }
+    timer1 = setTimeout(function() {
+        console.log('scroll');
+		$("#wish_regist").fadeIn("slow");
+    }, 1500);
+});
+
+//スクロールされた時
+var timer2 = false;
+$(window).scroll(function() {
+    
+    $("#stock_regist").fadeOut("normal");
+    
+    if (timer2 !== false) {
+        clearTimeout(timer2);
+    }
+    timer2 = setTimeout(function() {
+        console.log('scroll');
+		$("#stock_regist").fadeIn("slow");
+    }, 1500);
+});

@@ -5,3 +5,18 @@ $(document).ready(function(){
     increaseArea: '20%' // optional
   });
 });
+
+//スクロールされた時
+var timer = false;
+$(window).scroll(function() {
+    
+    $("#stock_regist").fadeOut("normal");
+    
+    if (timer !== false) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        console.log('scroll');
+		$("#stock_regist").fadeIn("slow");
+    }, 1500);
+});

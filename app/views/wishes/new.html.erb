@@ -32,7 +32,10 @@
          <div class="col-md-12">                        
             <ul class="list-group">
               <h4>商品の種類</h4>
+
+              <li class="list-group-item">
               <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => true %>
+              </li>
             </ul>
          </div>
 
@@ -40,7 +43,7 @@
 
          <div class="col-md-12">
             <ul class="list-group">
-              <h4>商品名</h4>
+              <h4>メモ</h4>
               <li class="list-group-item">
                 <%= sf.text_area :memo, :style=>'height:150px', :class=>'form-control',
                 :placeholder=> 'メモ等にお使い頂けます。'
