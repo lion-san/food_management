@@ -32,7 +32,11 @@ Nofoodloss::Application.routes.draw do
   get "stocks/index_all"
   get "stocks/sort_item"
   get "stocks/sort_by_category"
+  get "stocks/sort_edit_all"
+  get "stocks/sort_by_category_edit_all"
 
+
+  
   resources :categories
 
 

@@ -24,7 +24,7 @@
         <div class="col-md-12">
           <ul id="myTab2" class="view-mode nav nav-pills nav-justified">
 
-            <li class="active"><%= link_to stocks_edit_all_path do %>登録順
+            <li><%= link_to stocks_edit_all_path do %>登録順
                <span class="badge pull-right">
                   <%= @all_count %>
             </span><% end %></li>
@@ -37,13 +37,19 @@
         <% for i in 1..Category.count do %>
           <% if @counts[i] > 0 then %>
 
-            <li><%= link_to stocks_sort_by_category_edit_all_path(Category_id: i) do %>
+            <% if @stocks.first.user_item.category_id == i then %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end %>
+            <%= link_to stocks_sort_by_category_edit_all_path(Category_id: i) do %>
                   <%= Category.find(i).name %>
                   <span class="badge badge-success pull-right">
                   <%= @counts[i] %>
             </span><% end %></li>
           <% end %>
         <% end %>
+
           </ul>
         </div>
 
