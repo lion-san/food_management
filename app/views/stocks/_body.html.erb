@@ -1,0 +1,52 @@
+        <% @stocks.each do |stock| %>
+            <div class="col-xs-6 col-md-3">
+            <% if not stock.best_before_date.nil? then %>
+              <% #賞味期限の計算
+
+                #余裕値
+                margin = 3
+
+                d = Date.new(
+                      stock.best_before_date.to_s(:yyyy).to_i,
+                      stock.best_before_date.to_s(:mm).to_i,
+                      stock.best_before_date.to_s(:dd).to_i) - Date.today
+
+              %>
+              <% if d >= margin then %>
+              <span class="col-xs-12 col-md-12 best_before_date label label-info">
+              <% elsif d >= 0 then %>
+              <span class="col-xs-12 col-md-12 best_before_date label label-warning">
+              <% else %>
+              <span class="col-xs-12 col-md-12 best_before_date label label-danger">
+              <% end %>
+                賞味期限:<%= stock.best_before_date.to_s(:ymd) %>
+            <% else #賞味期限無し  %>
+              <span class="col-xs-12 col-md-12 best_before_date label label-default">
+                賞味期限情報無し
+            <% end %>
+              </span>
+              <span class="col-xs-12 col-md-12 label label-default">購入日:<%= stock.purchase_date.to_s(:ymd) %></span>
+              <div class="thumbnail">
+                <% if stock.user_item.use_thumbnail  %>
+                <%= image_tag( thumbnail_user_item_path(stock.user_item), :class => "img-rounded") %>
+                <% else %>
+                <%= image_tag( 'ingradients/' + stock.user_item.category_id.to_s + ".jpg", :class => "img-rounded") %>
+                <% end %>
+                <div class="infos">
+                  <h4><%= stock.user_item.name %></h4>
+                  <div class="purchase_after_days">
+                    購入日から【
+                    <%= 
+                       (Date.today - Date.new(
+                         stock.purchase_date.to_s(:yyyy).to_i,
+                         stock.purchase_date.to_s(:mm).to_i,
+                         stock.purchase_date.to_s(:dd).to_i) ).to_i
+                    %>
+                    日】経過</div>
+                  <div class="price"><%= stock.price %> 円</div>
+                  <div class="col-xs-12 col-md-12 label label-default"><%= stock.item_status.name %></div>
+                </div>
+              </div>
+            </div>
+            
+      <% end %>

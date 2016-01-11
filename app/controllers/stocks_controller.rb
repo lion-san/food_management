@@ -22,7 +22,6 @@ class StocksController < ApplicationController
     @stocks = stocks_params.map do |id, stock_param|
       stock = Stock.find(id)
       stock.update_attributes(stock_param)
-      stock
     end
     #respond_with(@stocks, location: stocks_edit_all_path)
     redirect_to stocks_edit_all_path
@@ -31,7 +30,13 @@ class StocksController < ApplicationController
   def sort_item
       @stocks = Stock.where( user_id: current_user.id, 
                                delete_status: 0 ).order("best_before_date ASC")
-    redirect_to stocks_path
+  end
+
+  def sort_by_category
+     @stocks = Stock.joins(:user_item)
+      .where("user_items.category_id = ?", sort_params[:Category_id])
+      .where( user_id: current_user.id, 
+      delete_status: 0 )
   end
 
   #Delete
@@ -49,6 +54,10 @@ class StocksController < ApplicationController
   private
     def stocks_params
       params.permit(stocks: [:item_status_id, :delete_status])[:stocks]
+    end
+
+    def sort_params
+      params.permit(:Category_id)
     end
 
 end

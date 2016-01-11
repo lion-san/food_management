@@ -1,0 +1,34 @@
+<% provide(:title, 'Stock list') %>
+    <!-- thumbnail -->
+      <div class="row">
+
+              <div class="col-md-12">
+                <ul id="myTab2" class="view-mode nav nav-pills nav-justified">
+                  <li class="active"><a href="#">すべて <span class="badge pull-right">
+                        <%= @stocks.count %>
+                      </span></a></li>
+                      <li><%= link_to stocks_sort_item_path do %>賞味期限順
+                      <span class="badge badge-success pull-right">
+                        <%= @stocks.count %>
+                      </span></a><% end %></li>
+                  <li><a href="#">肉<span class="badge badge-success pull-right">3</span></a></li>
+                  <li><a href="#">野菜<span class="badge badge-success pull-right">7</span></a></li>
+                  <li><a href="#">飲料<span class="badge badge-success pull-right">6</span></a></li>
+                  <li><a href="#">調味料<span class="badge badge-success pull-right">10</span></a></li>
+                </ul>
+              </div>
+
+        <%= render 'body' %>
+
+
+        <%= link_to new_user_item_path do %>
+          <div id="stock_regist" class="camera-base">
+            <span class="glyphicon glyphicon-camera camera" aria-hidden="true"></span>
+            <br>
+            <p class="camera-text">登録</p>
+          </div>
+        <% end %>
+
+      </div><!--row-->
+
+      <%= javascript_include_tag 'stocks/index' %>

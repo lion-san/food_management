@@ -23,12 +23,12 @@
         <div class="col-md-12">
           <ul id="myTab2" class="view-mode nav nav-pills nav-justified">
 
-            <li class="active"><%= link_to stocks_path do %>登録順
+            <li><%= link_to stocks_path do %>登録順
                <span class="badge pull-right">
                   <%= @all_count %>
             </span><% end %></li>
 
-            <li><%= link_to stocks_sort_item_path do %>賞味期限順
+            <li class="active"><%= link_to stocks_sort_item_path do %>賞味期限順
                 <span class="badge badge-success pull-right">
                   <%= @all_count %>
             </span><% end %></li>
