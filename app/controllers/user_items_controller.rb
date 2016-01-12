@@ -10,6 +10,10 @@ class UserItemsController < ApplicationController
     @item.stocks.build
     @item.stocks.first.price = nil
 
+    if not get_purchase_date.nil? then
+      @item.stocks.first.purchase_date = get_purchase_date
+    end
+
   end
 
   def create
@@ -37,6 +41,7 @@ class UserItemsController < ApplicationController
 
 
      if @item.save
+       set_purchase_date( @item.stocks.first.purchase_date )
 
        redirect_to stocks_path
 

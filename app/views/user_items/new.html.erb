@@ -51,7 +51,7 @@
               <h4>購入日(必須)</h4>
             </ul>
             <ul class="list-group">
-              <%= sf.text_field :purchase_date, :id=>'dp1', :readonly=>'readonly', :maxlength=>'10' %>
+              <%= sf.text_field :purchase_date, :id=>'dp1', :readonly=>'readonly', :maxlength=>'10', :value => @item.stocks.first.purchase_date.strftime("%Y/%m/%d") %>
             </ul>
             <ul class="list-group">
               <h4>賞味期限</h4>
