@@ -51,7 +51,7 @@
               <h4>購入日(必須)</h4>
             </ul>
             <ul class="list-group">
-              <% if get_purchase_date.nil? %>
+              <% if not get_purchase_date.nil? %>
               <%= sf.text_field :purchase_date, :id=>'dp1', :readonly=>'readonly', :maxlength=>'10', :value => @item.stocks.first.purchase_date.strftime("%Y/%m/%d") %>
             <% else %>
               <%= sf.text_field :purchase_date, :id=>'dp1', :readonly=>'readonly', :maxlength=>'10' %>
