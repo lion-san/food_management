@@ -68,6 +68,7 @@ class UserItemsController < ApplicationController
        redirect_to stocks_path
 
      else
+       @item.stocks.build
        render 'new'
      end
 
