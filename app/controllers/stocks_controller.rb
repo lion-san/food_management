@@ -54,9 +54,12 @@ class StocksController < ApplicationController
 
   #=== update ===================================-
   def update
-    @stocks = stocks_params.map do |id, stock_param|
-      stock = Stock.find(id)
-      stock.update_attributes(stock_param)
+    if not stocks_params.nil? then
+
+      @stocks = stocks_params.map do |id, stock_param|
+        stock = Stock.find(id)
+        stock.update_attributes(stock_param)
+      end
     end
     #respond_with(@stocks, location: stocks_edit_all_path)
     #redirect_to stocks_edit_all_path

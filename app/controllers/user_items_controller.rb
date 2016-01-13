@@ -22,8 +22,13 @@ class UserItemsController < ApplicationController
      @item.user_id = @current_user.id
 
      @item.stocks.first.user_id = @item.user_id
+
      if @item.stocks.first.price.nil?
        @item.stocks.first.price = 0
+     end
+
+     if @item.stocks.first.quantity.nil?
+       @item.stocks.first.quantity = 1 
      end
 
 
@@ -37,6 +42,23 @@ class UserItemsController < ApplicationController
        @item.thumbnail = resize_image( ori_image, 400, 266 )
        @item.thumbnail_content_type = params[:user_item][:thumbnail].content_type
        @item.use_thumbnail = true
+     end
+
+     #For multi quantity
+     stock = @item.stocks.first
+
+     if stock.quantity > 1
+       for i in 2..stock.quantity  do
+         s = Stock.new(
+                      user_id:stock.user_id, item_id:stock.item_id,
+                      item_status_id:stock.item_status_id,
+                      item_location_id:stock.item_location_id,
+                      price:stock.price, quantity:stock.quantity,
+                      purchase_date:stock.purchase_date,
+                      best_before_date:stock.best_before_date)
+         @item.stocks << s
+
+       end
      end
 
 
@@ -66,8 +88,10 @@ class UserItemsController < ApplicationController
                                         :thumbnail_content_type,
                                         :standard_best_before_date,
                                         stocks_attributes:[
-                                          :user_id, :item_id, :item_status_id, :item_location_id,
-                                          :price, :purchase_date, :best_before_date]
+                                          :user_id, :item_id, :item_status_id,
+                                          :item_location_id,
+                                          :price, :quantity,
+                                          :purchase_date, :best_before_date]
                                        )
     end
 
