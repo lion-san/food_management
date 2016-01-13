@@ -46,6 +46,7 @@ class UserItemsController < ApplicationController
 
      #For multi quantity
      stock = @item.stocks.first
+     cache = Array.new
 
      if stock.quantity > 1
        for i in 2..stock.quantity  do
@@ -57,6 +58,7 @@ class UserItemsController < ApplicationController
                       purchase_date:stock.purchase_date,
                       best_before_date:stock.best_before_date)
          @item.stocks << s
+         cache << s
 
        end
      end
@@ -68,8 +70,13 @@ class UserItemsController < ApplicationController
        redirect_to stocks_path
 
      else
-       @item.stocks.build
-       render 'new'
+       if stock.quantity > 1
+         cache.each do |e| 
+           @item.stocks.delete(e)
+         end
+       end
+
+      render 'new'
      end
 
   end
