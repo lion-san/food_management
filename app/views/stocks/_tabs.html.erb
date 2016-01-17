@@ -1,0 +1,77 @@
+<%
+
+  @all_count = Stock.where( user_id: current_user.id, 
+                             delete_status: 0 ).count
+
+  @counts = Array.new
+  @counts << 0
+  for i in 1..Category.count do
+    @counts << Stock.joins(:user_item)
+      .where("user_items.category_id = ?", i)
+      .where( user_id: current_user.id, 
+      delete_status: 0 ).count
+  end
+
+ 
+
+%>
+    <!-- thumbnail -->
+      <div class="row">
+
+        <div class="col-md-12">
+          <ul id="myTab2" class="view-mode nav nav-pills nav-justified">
+            
+            <% if @button_id.nil? || @button_id == 1 then %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end %>
+              <%= link_to stocks_path do %>通常
+               <span class="badge pull-right">
+                  <%= @all_count %>
+            </span><% end %></li>
+
+
+            <% if @button_id == 2 then %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end %>
+              <%= link_to stocks_sort_all_by_regist_path do %>登録順
+               <span class="badge pull-right">
+                  <%= @all_count %>
+            </span><% end %></li>
+
+
+            <% if @button_id == 3 then %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end %>
+            <%= link_to stocks_sort_item_path do %>賞味期限順
+                <span class="badge badge-success pull-right">
+                  <%= @all_count %>
+            </span><% end %></li>
+
+
+         <% for i in 1..Category.count do %>
+          <% if @counts[i] > 0 then %>
+
+            <% if @button_id == 0 && @stocks.first.user_item.category_id == i then %>
+              <li class="active">
+            <% else %>
+              <li>
+            <% end %>
+            <%= link_to stocks_sort_by_category_path(Category_id: i) do %>
+                  <%= Category.find(i).name %>
+                  <span class="badge badge-success pull-right">
+                  <%= @counts[i] %>
+            </span><% end %></li>
+          <% end %>
+        <% end %>
+        
+
+          </ul>
+        </div>
+
+

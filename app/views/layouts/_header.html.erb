@@ -30,7 +30,7 @@
                         <!-- <li class="disabled"><a href="#">Link</a></li> -->
                         <li><%= current_user.name%>さん</li>
                         <li><%= link_to "通常モード", stocks_path %></li>
-                        <li><%= link_to "在庫管理モード", stocks_edit_all_path %></li>
+                        <li><%= link_to "在庫管理モード", stocks_sort_all_by_category_edit_all_path %></li>
                         <li><%= link_to "全て表示", stocks_index_all_path %></li>
                         <li><%= link_to "買い物リスト", wishes_edit_all_path %></li>
                         <li><%= link_to "Settings", edit_user_path(current_user) %></li>

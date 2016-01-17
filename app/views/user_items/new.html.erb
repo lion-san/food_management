@@ -37,7 +37,7 @@
          <div class="col-md-12">                        
             <ul class="list-group">
               <h4>商品の種類</h4>
-              <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => true %>
+              <%= f.collection_select :category_id, Category.all.order(:sort), :id, :name, :include_blank => true %>
             </ul>
          </div>
 

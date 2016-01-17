@@ -26,15 +26,17 @@ Nofoodloss::Application.routes.draw do
   end
 
   match 'stocks',  to: 'stocks#index',  via: 'get'
-  match 'stocks/edit_all',  to: 'stocks#edit_all',  via: 'get'
   match 'stocks',  to: 'stocks#update',  via: 'put'
   match 'stocks',  to: 'stocks#destroy',  via: 'delete'
   get "stocks/index_all"
   get "stocks/sort_item"
+  get "stocks/sort_all_by_regist"
   get "stocks/sort_by_category"
+
+  get "stocks/sort_all_by_category_edit_all"
+  get "stocks/sort_all_by_regist_edit_all"
   get "stocks/sort_edit_all"
   get "stocks/sort_by_category_edit_all"
-
 
   
   resources :categories

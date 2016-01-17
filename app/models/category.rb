@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  has_many :stocks
+  has_many :user_items
 end

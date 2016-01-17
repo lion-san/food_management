@@ -49,23 +49,24 @@ end
 
 def make_categories
   Category.delete_all
-	Category.create!(id:1, name:"パン")
-	Category.create!(id:2, name:"魚介類")
-	Category.create!(id:3, name:"果物")
-	Category.create!(id:4, name:"インスタント食品")
-	Category.create!(id:5, name:"調味料ほか")
-	Category.create!(id:6, name:"肉類")
-	Category.create!(id:7, name:"野菜")
-	Category.create!(id:8, name:"飲料類")
+	Category.create!(id:7, name:"野菜", sort:10)
+	Category.create!(id:3, name:"果物", sort:20)
+	Category.create!(id:2, name:"魚介類", sort:30)
+	Category.create!(id:6, name:"肉類", sort:40)
+	Category.create!(id:9, name:"卵、乳製品", sort:50)
+	Category.create!(id:11, name:"冷凍食品", sort:60)
+	Category.create!(id:5, name:"調味料ほか", sort:70)
+	Category.create!(id:4, name:"インスタント食品", sort:80)
+	Category.create!(id:10, name:"米、穀類、シリアル", sort:90)
+	Category.create!(id:1, name:"パン", sort:95)
+	Category.create!(id:12, name:"缶詰、瓶詰", sort:100)
+	Category.create!(id:14, name:"パスタ、麺類", sort:110)
+	Category.create!(id:13, name:"菓子、デザート", sort:120)
+	Category.create!(id:8, name:"飲料類", sort:130)
   ######
-	Category.create!(id:9, name:"卵、乳製品")
-	Category.create!(id:10, name:"米、穀類、シリアル")
-	Category.create!(id:11, name:"冷凍食品")
-	Category.create!(id:12, name:"缶詰、瓶詰")
-	Category.create!(id:13, name:"菓子、デザート")
-	Category.create!(id:14, name:"パスタ、麺類")
-	Category.create!(id:15, name:"非常食")
-	Category.create!(id:16, name:"その他")
+	Category.create!(id:15, name:"非常食", sort:140)
+	Category.create!(id:16, name:"その他", sort:150)
+  #Last id:16
 end
 
 def make_item_statuses
