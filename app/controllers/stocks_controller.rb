@@ -16,6 +16,7 @@ class StocksController < ApplicationController
       @stocks = Stock.where( user_id: current_user.id, 
                                delete_status: 0 )
       @button_id = 2
+      render :action => "index"
   end
 
   def sort_item
@@ -23,6 +24,7 @@ class StocksController < ApplicationController
                                delete_status: 0 ).order("best_before_date ASC")
 
       @button_id = 3 
+      render :action => "index"
   end
 
   def sort_by_category
@@ -32,6 +34,7 @@ class StocksController < ApplicationController
       delete_status: 0 )
 
       @button_id = 0 
+      render :action => "index"
   end
 
 
@@ -50,6 +53,7 @@ class StocksController < ApplicationController
                    delete_status: 0 ).order("categories.sort")
 
       @button_id = 1 
+      render :action => "edit_all"
   end
 
 
@@ -59,6 +63,7 @@ class StocksController < ApplicationController
                                delete_status: 0 )
 
       @button_id = 2 
+      render :action => "edit_all"
   end
 
 
@@ -68,6 +73,7 @@ class StocksController < ApplicationController
                                delete_status: 0 ).order("best_before_date ASC")
 
       @button_id = 3 
+      render :action => "edit_all"
   end
 
   def sort_by_category_edit_all
@@ -78,6 +84,7 @@ class StocksController < ApplicationController
       delete_status: 0 )
 
       @button_id = 0 
+      render :action => "edit_all"
   end
 
   #=== update ===================================-
